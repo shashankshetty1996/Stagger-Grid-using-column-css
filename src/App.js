@@ -2,13 +2,16 @@ import React, { Component, Fragment } from "react";
 import axios from "axios";
 
 import Card from "./components/Card/Card";
+import Loader from "./components/Loader/Loader";
 
 import "./App.css";
 
 class App extends Component {
   state = {
     data: [],
-    numberOfCard: 30
+    numberOfCard: 30,
+    imageInterval: 3,
+    loaderDelay: 3000
   };
 
   async componentDidMount() {
@@ -17,17 +20,17 @@ class App extends Component {
       const photos = await axios.get(`${jsonPlaceHolder}/photos`);
       const posts = await axios.get(`${jsonPlaceHolder}/posts`);
       const data = this.generateData(photos.data, posts.data);
-      this.setState({ data });
+      this.loadData(data);
     } catch (error) {
       console.log(error);
     }
   }
 
   generateData = (photos, posts) => {
-    const { numberOfCard } = this.state;
+    const { numberOfCard, imageInterval } = this.state;
     let data = [];
     for (let i = 0; i < numberOfCard; i++) {
-      if (i % 3 === 0) {
+      if (i % imageInterval === 0) {
         data.push({ ...photos[i], ...posts[i] });
       } else {
         data.push({ ...posts[i] });
@@ -36,10 +39,17 @@ class App extends Component {
     return data;
   };
 
+  loadData = data => {
+    const { loaderDelay } = this.state;
+    setTimeout(() => {
+      this.setState({ data });
+    }, loaderDelay);
+  };
+
   render() {
     const { data } = this.state;
     if (data.length === 0) {
-      return <h1>Loading data</h1>;
+      return <Loader />;
     }
     return (
       <Fragment>

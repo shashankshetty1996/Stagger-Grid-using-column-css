@@ -1,17 +1,30 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #f5f7f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .container {
   width: 100%;
-  max-width: 768px;
+  max-width: 1000px;
   margin: 0 auto;
   column-count: 3;
   column-gap: 28px;
