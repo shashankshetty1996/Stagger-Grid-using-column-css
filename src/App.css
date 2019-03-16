@@ -1,5 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #f5f7f9;
+}
+.container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  column-count: 3;
+  column-gap: 28px;
+}
+.title {
+  text-align: center;
+  font-weight: 100;
+  color: #4f565c;
+  margin: 16px 0;
+}
+.card {
+  break-inside: avoid;
+  background-color: #ffffff;
+  margin-bottom: 50px;
+  color: #4f565c;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 23px;
+}
+.card-header {
+  padding: 20px 30px;
+  font-weight: 900;
+  font-size: 20px;
+}
+.card-content img {
+  width: 100%;
+}
+.card-content p {
+  padding: 5px 30px;
 }
