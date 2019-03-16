@@ -55,3 +55,10 @@ body {
 .card-content p {
   padding: 5px 30px;
 }
+.form {
+  margin: 16px 0;
+}
+.MuiFormControl-fullWidth-4 {
+  width: 30% !important;
+  margin: 0 8px !important;
+}

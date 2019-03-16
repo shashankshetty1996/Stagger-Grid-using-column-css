@@ -5,7 +5,9 @@ const Card = props => {
   const { title, url, body } = props;
   return (
     <div className="card">
-      <div className="card-header">{title}</div>
+      <div className="card-header">
+        {props.index} | {title}
+      </div>
       <div className="card-content">
         {url && <img src={url} alt="" />}
         <p>{body}</p>
